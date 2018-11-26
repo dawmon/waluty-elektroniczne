@@ -18,6 +18,7 @@ server <- function(input, output) {
 		 xlab = "Waiting time to next eruption (in mins)",
 		 main = "Histogram of waiting times")
 
-	})
+    })
 
 }
+
