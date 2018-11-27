@@ -19,5 +19,13 @@ server <- function(input, output) {
 		 main = "Histogram of waiting times")
 
     })
+
+    output$test <- renderPlot({
+
+        x <- fromJSON("https://api.blockchain.info/pools?timespan=5days")
+       
+
+    })
+
 }
 

@@ -26,7 +26,6 @@ ui <- fluidPage(
 
 	# Output: Histogram ----
 	  plotOutput(outputId = "distPlot")
-
   	)
   )
 )
