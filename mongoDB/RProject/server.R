@@ -8,7 +8,10 @@ server <- function(input, output) {
 	#
 	# 1. It is "reactive" and therefore should be automatically
 	#    re-executed when inputs (input$bins) change
-	# 2. Its output type is a plot
+    # 2. Its output type is a plot
+    library(jsonlite)
+    library(graphics)
+
 	output$distPlot <- renderPlot({
 
 		x <- faithful$waiting
@@ -19,5 +22,14 @@ server <- function(input, output) {
 		 main = "Histogram of waiting times")
 
     })
+
+    output$test <- renderPrint({
+
+        #x <- fromJSON("https://api.blockchain.info/pools?timespan=5days")
+        x <- fromJSON("https://api.coindesk.com/v1/bpi/historical/close.json")
+       #plot(x, y = NULL, type = "h", lwd = 2)
+       str(x)
+    })
+
 }
 
