@@ -10,6 +10,7 @@ server <- function(input, output) {
 	#    re-executed when inputs (input$bins) change
     # 2. Its output type is a plot
 
+    library(jsonlite)
 
 	output$distPlot <- renderPlot({
 
@@ -25,10 +26,20 @@ server <- function(input, output) {
     output$test <- renderPrint({
 
         #x <- fromJSON("https://api.blockchain.info/pools?timespan=5days")
-        x <- fromJSON("https://api.coindesk.com/v1/bpi/historical/close.json")
+        x <- fromJSON("https://api.coindesk.com/v1/bpi/historical/close.json", flatten = TRUE, simplifyVector = TRUE)
        #plot(x, y = NULL, type = "h", lwd = 2)
-       str(x)
+       #v <- x[["bpi"]][1]
+       #str(v)
+       list <- x[["bpi"]]
+       #str(list)
+       y <- as.array(list)
+       for (i in names(y)) {
+        print(i)
+        print(list[[i]])
+       }
+
     })
+
 
 }
 
