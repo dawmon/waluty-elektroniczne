@@ -63,8 +63,9 @@ server <- function(input, output) {
         salpr = cumsum(rnorm(31))
         )
 
-        with(dd, plot(unlist(y), xlab = as.Date(names(y))))
-        axis.Date(1, at = seq(min(dd$saldt), max(dd$saldt), by = "1 day"), format = "%m-%Y")
+
+        plot(unlist(y), xaxt = "n")
+        axis(1, 0:30, names(y))
         
     })
 
