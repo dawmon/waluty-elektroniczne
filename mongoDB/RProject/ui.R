@@ -27,7 +27,10 @@ ui <- fluidPage(
 	# Output: Histogram ----
       #plotOutput(outputId = "distPlot")
       #plotOutput(outputId = "test")
-        verbatimTextOutput("test")
+        #verbatimTextOutput("test")
+        #plot(unlist(y))
+        plotOutput(outputId = "distPlot")
+
   	)
   )
 )
