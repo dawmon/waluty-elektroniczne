@@ -1,6 +1,9 @@
-# Define server logic required to draw a histogram ----
+x = list(1, 2, 7)
+y = list(2, 4, 5)
 server <- function(input, output) {
-
+    output$distPlot <- renderPlot({
+    plot(x, y)
+    })
 	# Histogram of the Old Faithful Geyser Data ----
 	# with requested number of bins
 	# This expression that generates a histogram is wrapped in a call
@@ -24,20 +27,20 @@ server <- function(input, output) {
     #})
     #output$distPlot <- plotOutput
 
-    output$distPlot <- renderPlot({
+    #output$distPlot <- renderPlot({
 
-        x <- fromJSON("https://api.coindesk.com/v1/bpi/historical/close.json", flatten = TRUE, simplifyVector = TRUE)
-    list <- x[["bpi"]]
-    y <- as.array(list)
+     #   x <- fromJSON("https://api.coindesk.com/v1/bpi/historical/close.json", flatten = TRUE, simplifyVector = TRUE)
+    #list <- x[["bpi"]]
+    #y <- as.array(list)
 
-        dd <- data.frame(
-        saldt = seq(min(as.Date(names(y))), max(as.Date(names(y))), by = "1 day"),
-        salpr = cumsum(rnorm(31))
-        )
+     #   dd <- data.frame(
+    #    saldt = seq(min(as.Date(names(y))), max(as.Date(names(y))), by = "1 day"),
+   #     salpr = cumsum(rnorm(31))
+   #     )
 
-        with(dd, plot(unlist(y), xlab = as.Date(names(y))))
+    #    with(dd, plot(unlist(y), xlab = as.Date(names(y))))
     #axis.Date(1, at = seq(min(dd$saldt), max(dd$saldt), by = "1 day"), format = "%m-%Y")
 
-    })
+    #})
 }
 
