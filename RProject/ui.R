@@ -1,10 +1,10 @@
 #library(shiny)
 
 # Define UI for app that draws a histogram ----
-#ui <- fluidPage(
+ui <- fluidPage(
 
 # App title ----
-#  titlePanel("Hello Shiny!"),
+  titlePanel("Hello Shiny!"),
 
   # Sidebar layout with input and output definitions ----
 #  sidebarLayout(
@@ -22,11 +22,11 @@
 #			  	),
 
 				# Main panel for displaying outputs ----
-#	mainPanel(
+	mainPanel(
 
 	# Output: Histogram ----
-#	  plotOutput(outputId = "distPlot")
+	  plotOutput(outputId = "distPlot")
 
- # 	)
-#  )
+  	)
+  )
 #)
