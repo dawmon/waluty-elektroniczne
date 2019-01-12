@@ -29,6 +29,13 @@ ui <- fluidPage(
       #plotOutput(outputId = "test")
         #verbatimTextOutput("test")
         #plot(unlist(y))
+
+
+        h3('Minimum'),
+        h3(htmlOutput('minprice')),
+        h3('Maximum'),
+        h3(htmlOutput('maxprice')),
+    
         plotOutput(outputId = "distPlot")
 
   	)
