@@ -1,8 +1,16 @@
-x = list(1, 2, 7)
-y = list(2, 4, 5)
+#x = list(1, 2, 7)
+#y = list(2, 4, 5)
+library(jsonlite)
 server <- function(input, output) {
     output$distPlot <- renderPlot({
-    plot(x, y)
+        x <- fromJSON("https://api.coindesk.com/v1/bpi/historical/close.json", flatten = TRUE, simplifyVector = TRUE)
+        list <- x[["bpi"]]
+        y <- as.array(list)
+
+        y <- unlist(y)
+        plot(y, xaxt = "n")
+        axis(1, 0:30, names(y))
+        #plot(x, y)
     })
 	# Histogram of the Old Faithful Geyser Data ----
 	# with requested number of bins
