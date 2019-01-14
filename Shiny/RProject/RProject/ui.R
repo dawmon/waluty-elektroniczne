@@ -9,7 +9,7 @@ ui <- fluidPage(
     ),
     mainPanel(
               textOutput("selected_select"),
-              tags$head(tags$style("#selected_select{font-size: 30px;}"))
+              tags$head(tags$style("#selected_select{font-size: 25px;}"))
   	)
   )
 )
