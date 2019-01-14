@@ -3,7 +3,7 @@ server <- function(input, output) {
 
     output$selected_select <- renderText({
 
-        paste("Wartosc dla ","<b>", input$select, "</b>", " dnia ")
+        paste("Wartosc dla ","<b>", input$select, "</b>", " dnia ","<b>", input$date, "</b>")
 
     })
 }

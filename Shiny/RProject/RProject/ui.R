@@ -5,11 +5,11 @@ ui <- fluidPage(
 
   sidebarLayout(
     sidebarPanel(
-        selectInput("select", h3("Waluty"), choices = list("Bitcoin", "Inne"), selected = "Bitcoin")
+        selectInput("select", h3("Waluty"), choices = list("Bitcoin", "Inne"), selected = "Bitcoin"),
+        dateInput("date", h3("Data"), value = Sys.Date())
     ),
     mainPanel(
               h2(htmlOutput("selected_select"))
-              #tags$head(tags$style("#selected_select{font-size: 25px;}"))
   	)
   )
 )
