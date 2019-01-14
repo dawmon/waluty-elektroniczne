@@ -25,13 +25,7 @@ server <- function(input, output) {
 
     output$display <- renderPlot({
 
-        dd <- data.frame(
-        saldt = seq(min(as.Date(names(y))), max(as.Date(names(y))), by = "1 day"),
-        salpr = cumsum(rnorm(31))
-        )
-
-
-        plot(unlist(y), xaxt = "n")
+        plot(unlist(y), xaxt = "n", xlab = "Data", ylab = "Wartosc [USD]")
         axis(1, 0:30, names(y))
 
     })
