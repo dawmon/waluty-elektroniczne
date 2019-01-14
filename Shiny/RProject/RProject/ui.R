@@ -8,8 +8,8 @@ ui <- fluidPage(
         selectInput("select", h3("Waluty"), choices = list("Bitcoin", "Inne"), selected = "Bitcoin")
     ),
     mainPanel(
-              textOutput("selected_select"),
-              tags$head(tags$style("#selected_select{font-size: 25px;}"))
+              h2(htmlOutput("selected_select"))
+              #tags$head(tags$style("#selected_select{font-size: 25px;}"))
   	)
   )
 )
