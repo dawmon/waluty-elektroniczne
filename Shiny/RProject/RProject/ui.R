@@ -4,12 +4,14 @@ ui <- fluidPage(
   titlePanel("Waluty elektroniczne"),
 
   sidebarLayout(
-    sidebarPanel(
+    sidebarPanel(width = 3,
         selectInput("select", h3("Waluty"), choices = list("Bitcoin", "Inne"), selected = "Bitcoin"),
         dateInput("date", h3("Data"), value = Sys.Date())
     ),
     mainPanel(
-              h2(htmlOutput("selected_select"))
+              h2(htmlOutput("selected_select")),
+
+              plotOutput("display")
   	)
   )
 )
