@@ -1,6 +1,5 @@
 library(shiny)
 library(jsonlite)
-library(pracma)
 
 # Define UI ----
 ui <- fluidPage(

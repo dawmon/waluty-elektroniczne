@@ -1,7 +1,7 @@
 library(shiny)
 
 ui <- fluidPage(
-  titlePanel("Waluty elektroniczne"),
+  titlePanel(title = h1(strong("Waluty elektroniczne"))),
 
   sidebarLayout(
     sidebarPanel(width = 3,
