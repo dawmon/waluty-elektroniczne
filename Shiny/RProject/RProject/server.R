@@ -23,9 +23,11 @@ server <- function(input, output) {
 
     })
 
+
     output$display <- renderPlot({
 
-        plot(unlist(y), xaxt = "n", xlab = "Data", ylab = "Wartosc [USD]")
+        plot(unlist(y), xaxt = "n", xlab = "Data", ylab = "Wartosc [USD]",
+             main = paste("Zmiana wartosci dla ", input$select, " przez ostatnie 31 dni:"))
         axis(1, 0:30, names(y))
 
     })
