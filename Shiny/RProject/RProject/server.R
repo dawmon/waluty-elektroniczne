@@ -8,7 +8,6 @@ server <- function(input, output) {
 
     output$selected_select <- renderText({
 
-
     for (i in names(y)) {
         if (i == input$date) {
             value <- y[[i]]
@@ -22,6 +21,7 @@ server <- function(input, output) {
               "</br>", "<font size = 50px><b>", value, " USD", "</b></font>")
 
     })
+
 
 
     output$display <- renderPlot({
