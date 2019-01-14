@@ -6,8 +6,9 @@ ui <- fluidPage(
 
   sidebarLayout(
 
-    sidebarPanel(width = 3,
-        selectInput("select", h3("Waluta"), choices = list("Bitcoin", "Inne"), selected = "Bitcoin"),
+  sidebarPanel(
+        width = 3,
+        selectInput("select", h3("Waluta"), choices = names(bitlist), selected = "btcusd"),
         dateInput("date", h3("Data"), value = Sys.Date() - 1)
     ),
 
