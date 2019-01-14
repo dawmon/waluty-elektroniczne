@@ -13,8 +13,8 @@ ui <- fluidPage(
     ),
 
     mainPanel(
-              h2(htmlOutput("selected_select")),
-              plotOutput("display")
+        h2(htmlOutput("selected_select")),
+        plotOutput("display")
   	)
   )
 )
