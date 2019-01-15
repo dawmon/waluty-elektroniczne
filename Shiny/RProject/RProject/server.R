@@ -8,14 +8,14 @@ server <- function(input, output) {
 
     i <- 0
     bitlist <- list()
-    value <- c("BTC/USD","LTC/USD","LTC/BTC","ETH/USD","ETH/BTC","ETC/BTC")
+    value <- c("BTC/USD","LTC/USD","LTC/BTC","ETH/USD","ETH/BTC","ETC/BTC", "ETC/USD", "RRT/BTC", "ZEC/USD", "ZEC/BTC")
 
     for (a in bitfinex) {
         currency <- fromJSON(paste0("https://api.bitfinex.com/v1/pubticker/", a), flatten = TRUE, simplifyVector = TRUE)
         bitlist[[a]] <- currency[["last_price"]]
         Sys.sleep(1)
         i <- i + 1
-        if (i > 5) break
+        if (i > 9) break
     }
 
     names(bitlist) <- value
@@ -53,12 +53,12 @@ server <- function(input, output) {
 
 
     output$currt <- renderTable(
-            { df }, hover = TRUE, spacing = "l", width = "75%", align = "c")
+            { df }, hover = TRUE, spacing = "l", width = "100%", align = "c")
 
 
     output$currd <- renderPlot({
         plot(unlist(bitlist), type = "h", lwd = 15, col = "grey", xaxt = "n", xlab = " ", ylab = "Wartosc")
 
-        axis(1, 1:6, names(bitlist))
+        axis(1, 1:10, names(bitlist))
     })
 }
