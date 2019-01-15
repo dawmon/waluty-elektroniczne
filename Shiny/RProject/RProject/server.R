@@ -8,7 +8,7 @@ server <- function(input, output) {
 
     i <- 0
     bitlist <- list()
-    value <- list()
+    value <- c("BTC/USD","LTC/USD","LTC/BTC","ETH/USD","ETH/BTC","ETC/BTC")
 
     for (a in bitfinex) {
         currency <- fromJSON(paste0("https://api.bitfinex.com/v1/pubticker/", a), flatten = TRUE, simplifyVector = TRUE)
@@ -18,17 +18,47 @@ server <- function(input, output) {
         if (i > 5) break
     }
 
+    names(bitlist) <- value
+    df = data.frame(bitlist)
+
+
     output$selected_select <- renderText({
-        for (i in names(bitlist)) value[[i]] <- bitlist[[i]]
-        
-        paste("Wartosc dla ", "<b>", input$select, "</b>", " dnia ", "<b>", input$date, "</b>", 
-              "</br>", "<font size = 50px><b>", value[[input$select]], " USD", "</b></font>")
+
+        for (i in names(y)) {
+            if (i == input$date) {
+                valueb <- y[[i]]
+                break
+            }
+            else
+                valueb <- "Brak danych"
+        }
+
+        paste("Wartosc <b>Bitcoina</b> dnia <b>", input$date, "</b>",
+              "</br> <font size = 50px><b>", valueb, " USD </b></font>")
+
     })
+
 
     output$display <- renderPlot({
         plot(unlist(y), type = "b", col = "blue", xaxt = "n", xlab = "Data [yyyy-mm-dd]", ylab = "Wartosc [USD]",
-             main = paste("Zmiana wartosci dla", input$select, "przez ostatnie 31 dni:"))
+             main = paste("Zmiana wartosci Bitcoina przez ostatnie 31 dni:"))
 
         axis(1, 0:30, names(y))
+    })
+
+
+    output$curr <- renderText({
+        paste("Wartosci innych walut dla danej chwili</br>")
+    })
+
+
+    output$currt <- renderTable(
+            { df }, hover = TRUE, spacing = "l", width = "75%", align = "c")
+
+
+    output$currd <- renderPlot({
+        plot(unlist(bitlist), type = "h", lwd = 15, col = "grey", xaxt = "n", xlab = " ", ylab = "Wartosc")
+
+        axis(1, 1:6, names(bitlist))
     })
 }
