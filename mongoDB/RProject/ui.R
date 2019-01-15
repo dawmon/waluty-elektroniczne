@@ -4,30 +4,11 @@ library(shiny)
 ui <- fluidPage(
 
 # App title ----
-  titlePanel("BTC GET DEMO!"),
+    titlePanel("BTC/USD Price"),
 
-  # Sidebar layout with input and output definitions ----
-  sidebarLayout(
+    tags$h4(htmlOutput('minprice')),
+    tags$h4(htmlOutput('maxprice')),
+    
+    plotOutput(outputId = "distPlot")
 
-  # Sidebar panel for inputs ----
-	sidebarPanel(
-
-	# Input: Slider for the number of bins ----
-	#  sliderInput(inputId = "bins",
-	#			  label = "Number of bins:",
-	#			  min = 1,
-	#			  max = 50,
-	#			  value = 30)
-    #
-			  	),
-
-				# Main panel for displaying outputs ----
-	mainPanel(
-
-	# Output: Histogram ----
-      #plotOutput(outputId = "distPlot")
-      #plotOutput(outputId = "test")
-        verbatimTextOutput("test")
-  	)
-  )
 )
