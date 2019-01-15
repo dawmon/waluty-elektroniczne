@@ -1,32 +1,16 @@
-#library(shiny)
+library(shiny)
 
 # Define UI for app that draws a histogram ----
-#ui <- fluidPage(
+ui <- fluidPage(
 
 # App title ----
-#  titlePanel("Hello Shiny!"),
+  #titlePanel("Kurs Bitcoin"),
+#div(HTML("Old <em>Faithful Geyser</em> Data")),
+titlePanel(strong(em("Kurs Bitconia "))),
 
-  # Sidebar layout with input and output definitions ----
-#  sidebarLayout(
 
-  # Sidebar panel for inputs ----
-#	sidebarPanel(
-
-	# Input: Slider for the number of bins ----
-#	  sliderInput(inputId = "bins",
-#				  label = "Number of bins:",
-#				  min = 1,
-#				  max = 50,
-#				  value = 30)
-
-#			  	),
-
-				# Main panel for displaying outputs ----
-#	mainPanel(
-
-	# Output: Histogram ----
-#	  plotOutput(outputId = "distPlot")
-
- # 	)
-#  )
+    mainPanel(
+      plotOutput(outputId = "distPlot")
+  	)
+  )
 #)
